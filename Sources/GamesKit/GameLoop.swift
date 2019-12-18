@@ -8,7 +8,7 @@
 import CSDL2
 
 protocol GameLoop {
-    var state: GameState { get <#set#> }
+    var state: GameState { get set }
     
     func shutdown() -> Void
     

@@ -6,7 +6,9 @@ final class GamesKitTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(GamesKit().text, "Hello, World!")
+        //XCTAssertEqual(GamesKit.text, "Hello, World!")
+        var myWindow: Window = Window.init(title: "Test", x: nil, y: nil, height: 400, width: 600)
+        XCTAssert(myWindow.title == "Test")
     }
 
     static var allTests = [

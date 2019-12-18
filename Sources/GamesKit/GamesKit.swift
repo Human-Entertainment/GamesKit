@@ -1,6 +1,7 @@
 import Foundation
 
-struct GamesKit {
-    var text = "Hello, World!"
-    print(text)
+
+func main() -> Void {
+    print("Hello World")
 }
+
