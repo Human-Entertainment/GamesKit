@@ -22,10 +22,10 @@ final class GamesKitTests: XCTestCase {
         XCTAssertEqual(testGame.state, .down)
     }
     
-    func nottestClipBoard(){
+    func testClipBoard(){
         let string = "TestClip"
         ClipBoard.setClipBoard(body: string)
-        let clipboardValue = ClipBoard.value ?? "Naw man"
+        let clipboardValue = ClipBoard.value
         XCTAssertEqual(string, clipboardValue)
     }
 
