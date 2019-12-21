@@ -17,7 +17,7 @@ public protocol GameLoop {
     
     func shutdown() -> Void
     
-    func game() -> Void
+    mutating func game() -> Void
     
     func pause() -> Void
 }

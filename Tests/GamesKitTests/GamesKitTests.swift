@@ -7,11 +7,51 @@ final class GamesKitTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         //XCTAssertEqual(GamesKit.text, "Hello, World!")
-        let myWindow: Window = Window(title: "Test", height: 400, width: 600, options: [.fullscreen, .hidpi])
+        let myWindow: Window = Window(title: "Test", height: 1080, width: 1920, options: [.fullscreen, .hidpi])
         XCTAssertEqual(myWindow.title, "Test")
+    }
+    
+    func testQuitWindow() {
+        let title = "Test Window"
+        var testGame = GamesTest(state: .running, willShut: true, window: .init(title: title, height: 1080, width: 1920))
+        let firstCount = testGame.count
+        testGame.run()
+        let otherCount = testGame.count
+        XCTAssertFalse(firstCount == otherCount, "The game ran proper")
+        XCTAssertEqual(testGame.state, .down)
     }
 
     static var allTests = [
-        ("spawn window", testSpawnWindow),
+        ("Spawn window", testSpawnWindow),
+        ("Quit Game", testQuitWindow),
     ]
+
+    struct GamesTest: GameLoop {
+        var state: GameState
+
+        var willShut: Bool
+
+        var window: Window
+
+        func shutdown() {
+            print(count)
+        }
+        
+        var count = 0
+        
+        mutating func game() {
+            if willShut == true {
+                if count == 10 {
+                self.state = .down
+                } else {
+                    print(count)
+                    count += 1;
+                }
+            }
+        }
+
+        func pause() {
+            
+        }
+    }
 }
