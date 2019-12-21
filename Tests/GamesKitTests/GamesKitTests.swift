@@ -21,10 +21,18 @@ final class GamesKitTests: XCTestCase {
         XCTAssertFalse(firstCount == otherCount, "The game ran proper")
         XCTAssertEqual(testGame.state, .down)
     }
+    
+    func testClipBoard(){
+        let string = "TestClip"
+        ClipBoard.setClipBoard(body: string)
+        let clipboardValue = ClipBoard.value ?? "Naw man"
+        XCTAssertEqual(string, clipboardValue)
+    }
 
     static var allTests = [
         ("Spawn window", testSpawnWindow),
         ("Quit Game", testQuitWindow),
+        ("Test clipboard implementation", testClipBoard),
     ]
 
     struct GamesTest: GameLoop {
