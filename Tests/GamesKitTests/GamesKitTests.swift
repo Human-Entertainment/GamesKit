@@ -2,16 +2,16 @@ import XCTest
 @testable import GamesKit
 
 final class GamesKitTests: XCTestCase {
-    func testExample() {
+    func testSpawnWindow() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         //XCTAssertEqual(GamesKit.text, "Hello, World!")
-        var myWindow: Window = Window.init(title: "Test", x: nil, y: nil, height: 400, width: 600)
-        XCTAssert(myWindow.title == "Test")
+        let myWindow: Window = Window(title: "Test", height: 400, width: 600, options: [.fullscreen, .hidpi])
+        XCTAssertEqual(myWindow.title, "Test")
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("spawn window", testSpawnWindow),
     ]
 }

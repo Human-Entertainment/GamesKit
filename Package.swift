@@ -29,6 +29,8 @@ let package = Package(
         .target(
             name: "GamesKit",
             dependencies: ["CSDL2"]),
+        .target(name: "WindowTest",
+                dependencies: ["GamesKit"]),
         .testTarget(
             name: "GamesKitTests",
             dependencies: ["GamesKit"]),

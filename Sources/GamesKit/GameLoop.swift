@@ -7,8 +7,13 @@
 
 import CSDL2
 
-protocol GameLoop {
+/**
+ For making games!
+ */
+public protocol GameLoop {
     var state: GameState { get set }
+    
+    var window: Window { get set }
     
     func shutdown() -> Void
     
@@ -20,9 +25,9 @@ protocol GameLoop {
 extension GameLoop {
     
     /// Sets up the window and runs the game
-    func run() -> Void {
+    public mutating func run() -> Void {
         // TODO: Setup SDL
-        
+        let event = SDL_Event()
         while state != .down {
             switch state {
             case .running:
@@ -34,13 +39,22 @@ extension GameLoop {
             default:
                 break;
             }
+            
+            switch event.type {
+            case SDL_KEYDOWN.rawValue:
+                if event.key.keysym.sym == SDL_Keycode(SDLK_q) {
+                    state = .down
+                }
+            default:
+                break;
+            }
         }
         
         shutdown()
     }
 }
 
-enum GameState {
+public enum GameState {
     case down
     case running
     case paused
