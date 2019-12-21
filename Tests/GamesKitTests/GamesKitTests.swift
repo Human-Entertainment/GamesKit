@@ -32,7 +32,7 @@ final class GamesKitTests: XCTestCase {
     static var allTests = [
         ("Spawn window", testSpawnWindow),
         ("Quit Game", testQuitWindow),
-        //("Test clipboard implementation", testClipBoard),
+        ("Test clipboard implementation", testClipBoard),
     ]
 
     struct GamesTest: GameLoop {
