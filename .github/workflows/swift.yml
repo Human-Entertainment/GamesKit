@@ -3,12 +3,18 @@ name: Swift
 on: [push]
 
 jobs:
-  build:
-
-    runs-on: macOS-latest
+  build-macos:
+    
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v1
+    - uses: Homebrew/actions/git-ssh@master
+      with:
+        git_user: username
+        git_email: username@example.org
+        key_name: key_rsa
+        key: ${{ secrets.SSH_KEY }}
     - name: Build
       run: swift build -v
     - name: Run tests
