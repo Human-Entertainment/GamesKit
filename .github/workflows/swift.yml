@@ -23,7 +23,7 @@ jobs:
       run: swift test -v
   ubuntu-bionic:
     container: 
-      image: vapor/swift:5.1.3-bionic
+      image: vapor/swift:5.1-bionic
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
