@@ -4,7 +4,7 @@ struct Event {
     let event: [KeyBoardEvent]
     let action: () -> ()
     
-    init(event: KeyBoardEvent..., closure: () -> ()){
+    init(event: KeyBoardEvent..., closure: @escaping () -> ()){
         self.event = event
         self.action = closure
     }
@@ -15,5 +15,7 @@ struct Event {
 }
 
 struct KeyBoardEvent: OptionSet {
-    let rawValue: KeyBoardEvent.RawValue
+    let rawValue: UInt32
+    
+    static let KeyDown = KeyBoardEvent(rawValue: SDL_KEYDOWN.rawValue)
 }
