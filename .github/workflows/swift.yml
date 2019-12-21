@@ -21,3 +21,13 @@ jobs:
       run: swift build -v
     - name: Run tests
       run: swift test -v
+  build-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install SDL
+      run: apt-get install libsdl2-dev
+    - name: Build
+      run: swift build -v
+    - name: Run tests
+      run: swift test -v
