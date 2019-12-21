@@ -28,7 +28,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Install SDL
-      run: apt-get update && apt-get install libsdl2-dev
+      run: apt-get update -y && apt-get install libsdl2-dev
     - name: Build
       run: swift build -v
     - name: Run tests
