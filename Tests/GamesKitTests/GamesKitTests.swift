@@ -24,7 +24,7 @@ final class GamesKitTests: XCTestCase {
     
     func testClipBoard(){
         let string = "TestClip"
-        ClipBoard.setClipBoard(body: string)
+        ClipBoard.value = string
         let clipboardValue = ClipBoard.value
         XCTAssertEqual(string, clipboardValue)
     }
