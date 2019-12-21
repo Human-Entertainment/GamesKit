@@ -51,9 +51,5 @@ final class GamesKitTests: XCTestCase {
                 }
             }
         }
-
-        func pause() {
-            
-        }
     }
 }

@@ -39,5 +39,10 @@ public class Window  {
         #warning("Don't use this just yet, it will force you to shut down the machine")
         public static let fullscreen = WindowOptions(rawValue: SDL_WINDOW_FULLSCREEN.rawValue)
         public static let hidpi = WindowOptions(rawValue: SDL_WINDOW_ALLOW_HIGHDPI.rawValue)
+        @available(*, unavailable)
+        public static let openGL = WindowOptions(rawValue: SDL_WINDOW_OPENGL.rawValue)
+        @available(*, unavailable)
+        public static let vulcan = WindowOptions(rawValue: SDL_WINDOW_VULKAN.rawValue)
+        
     }
 }

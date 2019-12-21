@@ -10,13 +10,9 @@ import GamesKit
 struct Game: GameLoop {
     var state: GameState = .running
     
-    var window: Window = Window.init(title: "", height: 400, width: 600, options: [])
+    var window: Window = Window.init(title: "", height: 400, width: 600, options: [.hidpi])
 
     func game() {
-        return
-    }
-    
-    func pause() {
         return
     }
     

@@ -18,8 +18,6 @@ public protocol GameLoop {
     func shutdown() -> Void
     
     mutating func game() -> Void
-    
-    func pause() -> Void
 }
 
 extension GameLoop {
@@ -32,9 +30,6 @@ extension GameLoop {
             switch state {
             case .running:
                 game()
-                break;
-            case .paused:
-                pause()
                 break;
             default:
                 break;
@@ -57,5 +52,4 @@ extension GameLoop {
 public enum GameState {
     case down
     case running
-    case paused
 }
