@@ -2,18 +2,19 @@ import XCTest
 @testable import GamesKit
 
 final class GamesKitTests: XCTestCase {
+    
     func testSpawnWindow() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
         //XCTAssertEqual(GamesKit.text, "Hello, World!")
-        let myWindow: Window = Window(title: "Test", height: 1080, width: 1920, options: [.fullscreen, .hidpi])
+        let myWindow: Window = Window(title: "Test", height: 1080, width: 1920, options: [.hidpi])
         XCTAssertEqual(myWindow.title, "Test")
     }
     
     func testQuitWindow() {
         let title = "Test Window"
-        var testGame = GamesTest(state: .running, willShut: true, window: .init(title: title, height: 1080, width: 1920))
+        var testGame = GamesTest(state: .running, willShut: true, window: .init(title: title, height: 1080, width: 1920, options: .hidpi))
         let firstCount = testGame.count
         testGame.run()
         let otherCount = testGame.count
@@ -37,6 +38,7 @@ final class GamesKitTests: XCTestCase {
             print(count)
         }
         
+        // This is to see if the game is actually running
         var count = 0
         
         mutating func game() {
