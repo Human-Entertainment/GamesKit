@@ -1,7 +1,16 @@
 import CSDL2
 
 public struct ClipBoard {
-    public static var value: String? { return getClipBoard()}
+    public static var value: String {
+        get {
+            return getClipBoard()
+        }
+        
+        set {
+            setClipBoard(body: newValue)
+        }
+        
+    }
     
     static private func getClipBoard()  -> String {
         let pointer = SDL_GetClipboardText()!
@@ -9,7 +18,7 @@ public struct ClipBoard {
         return safeClipBoard
     }
     
-    public static func setClipBoard(body: String) -> Void {
+    private static func setClipBoard(body: String) -> Void {
         SDL_SetClipboardText(body.cString(using: .utf8))
     }
 }
